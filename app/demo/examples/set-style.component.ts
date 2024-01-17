@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MapComponent } from '@maplibre/ngx-maplibre-gl';
 import {
   RasterLayerSpecification,
   RasterSourceSpecification,
   StyleSpecification,
 } from 'maplibre-gl';
-import { FormsModule } from '@angular/forms';
-import { MatRadioModule } from '@angular/material/radio';
-import { MapComponent } from '@maplibre/ngx-maplibre-gl';
 
 @Component({
   selector: 'showcase-demo',
@@ -16,15 +16,21 @@ import { MapComponent } from '@maplibre/ngx-maplibre-gl';
       [zoom]="[13]"
       [center]="[4.899, 52.372]"
       [preserveDrawingBuffer]="true"
+      data-cy="mgl-map"
     >
     </mgl-map>
     <mat-radio-group
       [ngModel]="layerId"
       (ngModelChange)="changeStyle($event)"
       class="radio-group"
+      data-cy="radio-group"
     >
-      <mat-radio-button value="streets">streets</mat-radio-button>
-      <mat-radio-button value="code">from code</mat-radio-button>
+      <mat-radio-button value="streets" data-cy="streets-button"
+        >streets</mat-radio-button
+      >
+      <mat-radio-button value="code" data-cy="code-button"
+        >from code</mat-radio-button
+      >
     </mat-radio-group>
   `,
   styleUrls: ['./examples.css', './set-style.component.css'],

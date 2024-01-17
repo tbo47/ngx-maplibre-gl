@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { LayerSpecification } from 'maplibre-gl';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import {
-  MapComponent,
   LayerComponent,
+  MapComponent,
   VectorSourceComponent,
 } from '@maplibre/ngx-maplibre-gl';
+import { LayerSpecification } from 'maplibre-gl';
 
 @Component({
   selector: 'showcase-demo',
@@ -53,13 +53,17 @@ import {
         [checked]="true"
         value="names"
         (change)="toggleLayer($event)"
-        >countries names</mat-button-toggle
+        ><span data-cy="countries-toggle-button"
+          >countries names</span
+        ></mat-button-toggle
       >
       <mat-button-toggle
         [checked]="true"
         value="countries"
         (change)="toggleLayer($event)"
-        >countries border</mat-button-toggle
+        ><span data-cy="countries-toggle-borders"
+          >countries border</span
+        ></mat-button-toggle
       >
     </div>
   `,

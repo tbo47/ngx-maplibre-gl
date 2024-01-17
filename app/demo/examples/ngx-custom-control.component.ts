@@ -1,16 +1,16 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import {
-  MapComponent,
-  ControlComponent,
   AttributionControlDirective,
+  ControlComponent,
   FullscreenControlDirective,
   GeolocateControlDirective,
+  MapComponent,
   NavigationControlDirective,
-  ScaleControlDirective,
   Position,
+  ScaleControlDirective,
 } from '@maplibre/ngx-maplibre-gl';
-import { MatButtonModule } from '@angular/material/button';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'showcase-demo',
@@ -27,6 +27,7 @@ import { NgIf } from '@angular/common';
             mat-fab
             color="primary"
             class="custom-control"
+            data-cy="custom-control"
             (click)="alert('Hello')"
           >
             Hello
@@ -44,7 +45,12 @@ import { NgIf } from '@angular/common';
       </ng-container>
 
       <mgl-control position="bottom-right">
-        <button mat-flat-button color="accent" (click)="toggleControls()">
+        <button
+          mat-flat-button
+          color="accent"
+          (click)="toggleControls()"
+          data-cy="toggle-show-controls"
+        >
           {{ visible ? 'Hide Controls' : 'Show Controls' }}
         </button>
       </mgl-control>
